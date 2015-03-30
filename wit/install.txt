@@ -1,0 +1,14 @@
+// make sure you dont have enthought canopy installed
+xcode-select --install
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
+// ^ checks if there are any issues before you install
+brew install sox
+brew install curl
+brew install python
+
+// installs pywit
+git clone https://github.com/wit-ai/pywit.git
+cd pywit
+python setup.py build
+sudo python setup.py install
