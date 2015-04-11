@@ -50,6 +50,7 @@ if __name__ == '__main__':
     
     # start with current pose
     waypoints.append(right_arm_group.get_current_pose().pose)
+    print waypoints[0]
     
     # first move: orient gripper and move forward (+x)
     wpose = geometry_msgs.msg.Pose()
@@ -57,8 +58,8 @@ if __name__ == '__main__':
     wpose.orientation.y = waypoints[0].orientation.y
     wpose.orientation.z = waypoints[0].orientation.z
     wpose.orientation.w = waypoints[0].orientation.w
-    wpose.position.x = waypoints[0].position.x + 0.5
-    wpose.position.y = waypoints[0].position.y
+    wpose.position.x = waypoints[0].position.x
+    wpose.position.y = waypoints[0].position.y + 0.5
     wpose.position.z = waypoints[0].position.z
 
     waypoints.append(copy.deepcopy(wpose))
@@ -66,8 +67,10 @@ if __name__ == '__main__':
     # compute cartesian path
 
     (plan2, fraction) = right_arm_group.compute_cartesian_path(waypoints, 0.01, 0.0)
-
+    
+    rospy.sleep(3)
     print "========= Moving along Cartesian Path =========="
     right_arm_group.go()
-    
+    rospy.sleep(3)
+
     IPython.embed()
