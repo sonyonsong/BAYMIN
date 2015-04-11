@@ -1,0 +1,9 @@
+<launch>
+
+  <!--Begin everything specified in the pr2_gazebo_moveit launch file-->
+  <include file="$(find system_launch)/launch/pr2_gazebo_moveit.launch"/>
+
+  <!--This is your code to make the Pr2 go pickup the cup-->
+  <include file="$(find pickup_object)/launch/pickup_object.launch"/>
+
+</launch>

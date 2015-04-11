@@ -1,0 +1,9 @@
+<launch>
+
+  <!--Keep this if you did this assigment using C++-->
+  <node name="pickup_object" pkg="pickup_object" type="pickup_object"/>
+
+  <!--Uncomment this if you did this assignment using python-->
+  <!--<node name="pickup_object" pkg="pickup_object" type="pickup_object.py"/>-->
+
+</launch>
