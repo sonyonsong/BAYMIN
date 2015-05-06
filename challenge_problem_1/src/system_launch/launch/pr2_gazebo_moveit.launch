@@ -13,6 +13,9 @@
    <!--Start up moveit in order to plan arm trajectories-->
   <include file="$(find pr2_moveit_config)/launch/move_group.launch"/>
 
+  <!-- Adding Tuck Arms Service Node -->
+  <node name="arm_tucking_service" pkg="tuck_arms" type="tuck_pr2_arms.py"/>
+
   <!-- Add table to the world -->
   <node name="spawn_table" pkg="gazebo_ros" type="spawn_model" 
    args="-urdf -file $(find system_launch)/models/table.urdf -model table -x 2.15 -y 0.5"
