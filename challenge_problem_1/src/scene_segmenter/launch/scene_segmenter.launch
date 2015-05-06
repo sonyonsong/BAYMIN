@@ -1,0 +1,4 @@
+<launch>
+  <node name="scene_segmenter" pkg="scene_segmenter" type="scene_segmenter_node" /> 
+  <test test-name="test_scene_segmenter" pkg="scene_segmenter" type="test_scene_segmenter_node" name="test" />
+</launch>

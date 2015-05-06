@@ -1,0 +1,31 @@
+<launch>
+
+  <!--Arguments that can be passed into the launch from the cmd line-->
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="false"/>
+
+  <!--Parameters to be placed on the ros param server-->
+  <param name="/use_sim_time" value="true" />
+
+  <!--Start up the gazebo simulator with the PR2 robot inside it-->
+  <include file="$(find pr2_gazebo)/launch/pr2_empty_world.launch"/>
+
+   <!--Start up moveit in order to plan arm trajectories-->
+  <include file="$(find pr2_moveit_config)/launch/move_group.launch"/>
+
+  <!-- Adding Tuck Arms Service Node -->
+  <node name="arm_tucking_service" pkg="tuck_arms" type="tuck_pr2_arms.py"/>
+
+  <!-- Adding Vision Publisher/Subscriber Node -->
+  <node name="vision_node" pkg="vision" type="contour_props.py"/>
+
+  <!-- Adding Scene Segmenter Node -->
+  <node name="scene_segmenter" pkg="scene_segmenter" type="scene_segmenter_node" />
+
+  <!-- Adding PointCloud Subscriber Node -->
+  <node name="pcl_node" pkg="point_cloud" type="pcl_subscriber.py"/>dd table to the world -->
+
+
+
+
+</launch>

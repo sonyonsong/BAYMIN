@@ -1,0 +1,25 @@
+---------- MASTER TO-DO LIST ------------
+
+********** POUND IT/ FIST BUMP (IF TIME PERMITTING) ***********
+1. Have Michael create a vision aspect for fist using the camera on the
+right claw AND POINT CLOUD for DEPTH -- look for a blob that is skin
+colored, return its centroid, and depth/distance from camera 
+3. Rotate until object is centered (in perspective of the claw) and move
++depth and -depth
+
+********* FOLLOW A CERTAIN COLOR BLOB ***********
+0. Spawn objects of different colors into the worldi
+0.2. Play with the pcl_ros demo code in c++
+0.5. MICHAEL -- control the publishing by using rate = rospy.Rate(1) # 1
+hertz and then rate.sleep() right after publishing
+1. Write a publisher and a subscriber
+2. First publish the color
+3. Then listen with the subscriber for the first (centroid, area)
+4. Wait for a little bit and listen in again for an updated (centroid, area)
+5. Based on this, turn left/right, move forward --> WHEN DO I STOP
+FOLLOWING?? WHEN DO I EXIT OUT OF THE WHILE LOOP? --Odometer?? When it has
+traveled a certain amount? Or, if it sees ALL black? Like camera is
+blocked.
+6. In addition, if we figure out how to use the point cloud, we should have
+something like "Go get the person in the red shirt" and have it go up to it,
+have it say "Please follow me," and return the same way it went
